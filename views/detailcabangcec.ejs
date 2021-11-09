@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard -  Albus 4 <%= login[0].pid %></title>
+    <link rel = "icon" href = "https://kadence.com/wp-content/uploads/2020/07/260x260.png" type = "image/x-icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script src="<%= baseurl() %>plugin/flexmonster/theme/green/flexmonster.css"></script>
+    <%- include ('./partials/header') %>
+</head>
+<style>
+    .overview{
+        padding: 10px 30px;
+        background-color: #ffffff;
+        border-radius: 8px;
+    }
+</style>
+<body>
+<div class="wrapper">
+	<div class="lSide">
+		<%- include ('./partials/sidebar') %>
+	</div>
+	<div class="rSide">
+		<div class="head desk">
+			<%- include ('./partials/topdesk') %>
+		</div>
+		<div class="mainbox size-std column">
+			<div class="breadcrumbs size-std">
+				<a href="<%= baseurl() %>">DASHBOARD <%= login[0].nameses %></a> > <a href="<%= baseurl() %>report/detail">List Cabang</a> > <%= idc %>
+			</div>
+			<div class="cols-12">
+                <% if(data.length<=0){ %>
+                    no data to display
+                <% }else{ %>
+				<!-- Tabgrid -->
+				<div class="tabgrid full-length">
+					<ul>
+						<% for(var i=0;i<data[0].filename.length;i++){ %>
+							<% var type = data[0].filename[i].split(".") %>
+							<% if(type[1]=="jpg" || type[1]=="PNG" || type[1]=="jpeg" || type[1]=="png"){ %>
+								<li class="thistab delay" data="video<%= i+1 %>" data-target="<%= i %>">Image <%= i+1 %></li>
+							<% }else{ %>
+								<li class="thistab delay" data="video<%= i+1 %>" data-target="<%= i %>">Video <%= i+1 %></li>
+							<% } %>
+						<% } %>
+					</ul>
+					<div class="selectorline"></div>
+				</div>
+				<div class="full-length tabgridwrap">
+					<div class="tabgridcontent">
+						<% if(data[0].src=="drive"){var url="http://survey.kadence.co.id/dashboard/file/idd3500/"}else{var url="http://apps.kadence.co.id/kepo/files/"} %>
+						<% for(let i=0;i < data[0].filename.length ; i++){ %>
+						<div class="gridcontent active delay" id="video<%= i+1 %>" data="1">
+							<div style="width: 100%; padding: 10px; text-align: center;">
+								<% if(type[1]=="jpg" || type[1]=="PNG" || type[1]=="jpeg" || type[1]=="png" || type[1]=="JPG"){ %>
+									<img src="<%= url %><%= data[0].id %>/<%= data[0].filename[i] %>" alt="" style="height: 520px;">
+								<% }else{ %>
+								<video id="videoplayer" width="100%" height="520" controls style="margin-top: 30px">
+									<source src="<%= url %><%= data[0].id %>/<%= data[0].filename[i] %>" type="video/mp4">
+									  Your browser does not support the video tag.
+								</video>
+								<% } %>
+							</div>
+						</div>
+						<% } %>
+					</div>
+				</div>
+                <!-- Tabgrid -->
+                <% } %>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<%- include ('./partials/footer') %>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard -  Albus 4 <%= login[0].pid %></title>
+    <link rel = "icon" href = "https://kadence.com/wp-content/uploads/2020/07/260x260.png" type = "image/x-icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script src="<%= baseurl() %>plugin/flexmonster/theme/green/flexmonster.css"></script>
+    <%- include ('./partials/header') %>
+</head>
+<style>
+    .overview{
+        padding: 10px 30px;
+        background-color: #ffffff;
+        border-radius: 8px;
+    }
+</style>
+<body>
+<div class="wrapper">
+	<div class="lSide">
+		<%- include ('./partials/sidebar') %>
+	</div>
+	<div class="rSide">
+		<div class="head desk">
+			<%- include ('./partials/topdesk') %>
+		</div>
+		<div class="mainbox size-std column">
+			<div class="breadcrumbs size-std">
+				<a href="<%= baseurl() %>">DASHBOARD <%= login[0].nameses %></a> > List Cabang
+			</div>
+            <form class="control">
+                <div class="list-control" style="border-bottom: none;">
+                    <div class="list-control-box spc-rl">
+                        <span class="size-std">Show By Area</span>
+                        <select name="" id="area" class="size-std" >
+                            <option value="all">-- All --</option>
+                        </select>
+                    </div>
+                    <div class="list-control-box spc-rl">
+                        <span class="size-std">Show By Cabang</span>
+                        <select name="" id="cabang" class="size-std">
+                            <option value="all">-- All --</option>
+                        </select>
+                    </div>
+                    <div class="list-control-box spc-rl">
+                        <input type="search" name="search" ng-model="search" placeholder="Search">
+                    </div>
+                    <div class="list-control-box size-std spc-rl">
+                        <button type="submit" class="myButton-submit">Show</button>
+                        <button type="reset" class="myButton-submit">Clear</button>
+                    </div>
+                </div>
+
+            </form>
+			<div class="full-length" style="position: relative;">
+                <div class="loader" style="display: none;">
+                    <span class="loader-helper"></span><img src="<%= baseurl() %>images/icon/loader.gif" alt="">
+                </div>
+            </div>
+            <div class="full-length" id="contentDetail" style="overflow-x: auto; padding-bottom: 40px;">
+                <table class="size-std full-tables">
+                    <tr>
+                        <th style="text-align: left; cursor: pointer;" ng-click="sort('area')">Area <div ng-class="sortClass('area')"></div></th>
+                        <th style="text-align: left; width: 200px; cursor: pointer;" ng-click="sort('cabang')">Lokasi <div ng-class="sortClass('cabang')"></div></th>
+                        <th style="cursor: pointer;" ng-click="sort('total_skor')">Total Skor <div ng-class="sortClass('total_skor')"></div></th>
+                        <th style="width: 100px;">Detail</th>
+                    </tr>
+                    <tr dir-paginate="req in skenario | orderBy:sortKey:reverse | filter: search | itemsPerPage:20">
+                        <td>{{req.area}}</td>
+                        <td>{{req.cabang}}</td>
+                        <td align="center">{{req.total_skor}}</td>
+                        <td align="center"><a href="<%= baseurl() %>report/detail/test" target="_blank">View</a></td>
+                    </tr>
+                </table>
+                <dir-pagination-controls direction-links="true" boundary-links="true" class="size-std"></dir-pagination-controls>
+            </div>
+		</div>
+	</div>
+</div>
+</body>
+<%- include ('./partials/footer') %>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+</html>
