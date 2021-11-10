@@ -1,13 +1,13 @@
 {
-  "name": "idd3805_albus",
+  "name": "idd3805_grace",
   "version": "1.0.0",
   "description": "Dashboard Grace",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "pm2 start index.js --name 'idd3500_albus'",
-    "stop": "pm2 stop index.js --name 'idd3500_albus'",
-    "restart": "pm2 restart index.js --name 'idd3500_albus'"
+    "start": "pm2 start nodemon index.js --name idd3805_grace",
+    "stop": "pm2 stop index.js --name idd3805_grace",
+    "restart": "pm2 restart index.js --name idd3805_grace"
   },
   "repository": {
     "type": "git",

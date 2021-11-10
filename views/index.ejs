@@ -30,74 +30,32 @@
         <div class="mainbox size-std column">
           <div class="breadcrumbs size-std">DASHBOARD</div>
           <div class="overview full-length column shadow half">
+			  <%
+			 	for(let i=0; i<dataTotal.length; i++){ 
+			  %>
             <div
               class="cols-4"
               style="
-                color: #75A43D;
+                color: <%= dataTotal[i].color %>;
                 border-right: 1px solid #f5f5f5;
                 padding: 5px 2%;
               "
             >
               <p class="size-head3 nopad">
-                Total <b style="float: right">54(90<sup>%</sup>)</b>
+                <%= dataTotal[i].label %> <b style="float: right"><%= dataTotal[i].total %>(<%= dataTotal[i].y %><sup>%</sup>)</b>
               </p>
               <div class="progressbar">
                 <div
                   class="progressresult"
-                  style="width: 90%; background-color: #75A43D"
+                  style="width: <%= dataTotal[i].y %>%; background-color: <%= dataTotal[i].color %>"
                 ></div>
                 <div
                   class="progressdot"
-                  style="left: 89%; background-color: #75A43D"
+                  style="left: <%= dataTotal[i].y-1 %>%; background-color: <%= dataTotal[i].color %>"
                 ></div>
               </div>
             </div>
-
-			<div
-              class="cols-4"
-              style="
-                color: #95C261;
-                border-right: 1px solid #f5f5f5;
-                padding: 5px 2%;
-              "
-            >
-              <p class="size-head3 nopad">
-                Danamon <b style="float: right">54(90<sup>%</sup>)</b>
-              </p>
-              <div class="progressbar">
-                <div
-                  class="progressresult"
-                  style="width: 90%; background-color: #95C261"
-                ></div>
-                <div
-                  class="progressdot"
-                  style="left: 89%; background-color: #95C261"
-                ></div>
-              </div>
-            </div>
-
-			<div
-              class="cols-4"
-              style="
-                color: #3bcbb2;
-                border-right: 1px solid #f5f5f5;
-                padding: 5px 2%;
-              "
-            >
-              <p class="size-head3 nopad">
-                Adira Finance(ADMF) <b style="float: right">54(90<sup>%</sup>)</b>
-              </p>
-              <div class="progressbar">
-                <div
-                  class="progressresult"
-                  style="width: 90%; background-color: #3bcbb2"
-                ></div>
-                <div
-                  class="progressdot"
-                  style="left: 89%; background-color: #3bcbb2"
-                ></div>
-              </div>
-            </div>
+			<% } %>
           </div>
           <div class="cols-12 containt" style="margin: 20px 0">
             <div class="headtitle trans" style="margin-bottom: 0">
@@ -119,52 +77,34 @@
           </div>
 
 		  <div class="overview full-length column shadow half">
+			  <%
+			 	for(let i=0; i<breakDanamon.length; i++){ 
+			  %>
             <div
               class="cols-6"
               style="
-                color: #95C261;
+                color: <%= breakDanamon[i].color %>;
                 border-right: 1px solid #f5f5f5;
                 padding: 5px 2%;
               "
             >
               <p class="size-head3 nopad">
-                Autocilin <b style="float: right">54(90<sup>%</sup>)</b>
+                <%= breakDanamon[i].label %> <b style="float: right"><%= breakDanamon[i].total %>(<%= breakDanamon[i].y %><sup>%</sup>)</b>
               </p>
               <div class="progressbar">
                 <div
                   class="progressresult"
-                  style="width: 90%; background-color: #95C261"
+                  style="width: <%= breakDanamon[i].y %>%; background-color: <%= breakDanamon[i].color %>"
                 ></div>
                 <div
                   class="progressdot"
-                  style="left: 89%; background-color: #95C261"
+                  style="left: <%= breakDanamon[i].y-1 %>%; background-color: <%= breakDanamon[i].color %>"
                 ></div>
               </div>
             </div>
-
-			<div
-              class="cols-6"
-              style="
-                color: #3bcbb2;
-                border-right: 1px solid #f5f5f5;
-                padding: 5px 2%;
-              "
-            >
-              <p class="size-head3 nopad">
-                Insurance Property <b style="float: right">54(90<sup>%</sup>)</b>
-              </p>
-              <div class="progressbar">
-                <div
-                  class="progressresult"
-                  style="width: 90%; background-color: #3bcbb2"
-                ></div>
-                <div
-                  class="progressdot"
-                  style="left: 89%; background-color: #3bcbb2"
-                ></div>
-              </div>
-            </div>
+			<% } %>
           </div>
+
           <div class="cols-12 containt" style="margin: 20px 0">
             <div class="headtitle trans" style="margin-bottom: 0">
               <p class="size-head3 nopad">Detail Danamon</p>
@@ -186,143 +126,32 @@
 
 
 		  <div class="overview full-length column shadow half">
+			  <%
+			 	for(let i=0; i<breakAdmf.length; i++){ 
+			  %>
             <div
               class="cols-2"
               style="
-                color: #75A43D;
+                color: <%= breakAdmf[i].color %>;
                 border-right: 1px solid #f5f5f5;
                 padding: 5px 2%;
               "
             >
               <p class="size-head3 nopad">
-                Autocilin <b style="float: right">54(90<sup>%</sup>)</b>
+                <%= breakAdmf[i].label %> <b style="float: right"><%= breakAdmf[i].total %>(<%= breakAdmf[i].y %><sup>%</sup>)</b>
               </p>
               <div class="progressbar">
                 <div
                   class="progressresult"
-                  style="width: 90%; background-color: #75A43D"
+                  style="width: <%= breakAdmf[i].y %>%; background-color: <%= breakAdmf[i].color %>"
                 ></div>
                 <div
                   class="progressdot"
-                  style="left: 89%; background-color: #75A43D"
+                  style="left: <%= breakAdmf[i].y-1 %>%; background-color: <%= breakAdmf[i].color %>"
                 ></div>
               </div>
             </div>
-
-			<div
-              class="cols-2"
-              style="
-                color: #95C261;
-                border-right: 1px solid #f5f5f5;
-                padding: 5px 2%;
-              "
-            >
-              <p class="size-head3 nopad">
-                Motopro <b style="float: right">54(90<sup>%</sup>)</b>
-              </p>
-              <div class="progressbar">
-                <div
-                  class="progressresult"
-                  style="width: 90%; background-color: #95C261"
-                ></div>
-                <div
-                  class="progressdot"
-                  style="left: 89%; background-color: #95C261"
-                ></div>
-              </div>
-            </div>
-
-			<div
-              class="cols-2"
-              style="
-                color: #3bcbb2;
-                border-right: 1px solid #f5f5f5;
-                padding: 5px 2%;
-              "
-            >
-              <p class="size-head3 nopad">
-                DB <b style="float: right">54(90<sup>%</sup>)</b>
-              </p>
-              <div class="progressbar">
-                <div
-                  class="progressresult"
-                  style="width: 90%; background-color: #3bcbb2"
-                ></div>
-                <div
-                  class="progressdot"
-                  style="left: 89%; background-color: #3bcbb2"
-                ></div>
-              </div>
-            </div>
-
-			<div
-              class="cols-2"
-              style="
-                color: #F5A149;
-                border-right: 1px solid #f5f5f5;
-                padding: 5px 2%;
-              "
-            >
-              <p class="size-head3 nopad">
-                Typhus <b style="float: right">54(90<sup>%</sup>)</b>
-              </p>
-              <div class="progressbar">
-                <div
-                  class="progressresult"
-                  style="width: 90%; background-color: #F5A149"
-                ></div>
-                <div
-                  class="progressdot"
-                  style="left: 89%; background-color: #F5A149"
-                ></div>
-              </div>
-            </div>
-
-			<div
-              class="cols-2"
-              style="
-                color: #FFBE64;
-                border-right: 1px solid #f5f5f5;
-                padding: 5px 2%;
-              "
-            >
-              <p class="size-head3 nopad">
-                Mobilite <b style="float: right">54(90<sup>%</sup>)</b>
-              </p>
-              <div class="progressbar">
-                <div
-                  class="progressresult"
-                  style="width: 90%; background-color: #FFBE64"
-                ></div>
-                <div
-                  class="progressdot"
-                  style="left: 89%; background-color: #FFBE64"
-                ></div>
-              </div>
-            </div>
-
-			<div
-              class="cols-2"
-              style="
-                color: #FFBE64;
-                border-right: 1px solid #f5f5f5;
-                padding: 5px 2%;
-              "
-            >
-              <p class="size-head3 nopad">
-                Motolite <b style="float: right">54(90<sup>%</sup>)</b>
-              </p>
-              <div class="progressbar">
-                <div
-                  class="progressresult"
-                  style="width: 90%; background-color: #FFBE64"
-                ></div>
-                <div
-                  class="progressdot"
-                  style="left: 89%; background-color: #FFBE64"
-                ></div>
-              </div>
-            </div>
+			<% } %>
           </div>
           <div class="cols-12 containt" style="margin: 20px 0">
             <div class="headtitle trans" style="margin-bottom: 0">
@@ -331,7 +160,7 @@
             <div style="width: 100%">
               <div class="chartbox">
                 <div
-                  id="detailCec"
+                  id="chartadmf"
                   style="
                     height: 400px;
                     max-width: 100%;
@@ -377,7 +206,7 @@
     			indexLabelFontSize: 12,
     			yValueFormatString: "#0.##",
     			toolTipContent: "<b>{label}</b>: {count}({y}%)",
-    			dataPoints: []
+    			dataPoints: <%- JSON.stringify(dataTotal) %>
     		}
     		]
     	};
@@ -404,11 +233,38 @@
     			indexLabelFontSize: 12,
     			yValueFormatString: "#0.##",
     			toolTipContent: "<b>{label}</b>: {count}({y}%)",
-    			dataPoints: []
+    			dataPoints: <%- JSON.stringify(breakDanamon) %>
     		}
     		]
     	};
         $("#detailCec").CanvasJSChart(detailcec);
+
+		var detailcec = {
+    		colorSet: "flexmonsterStyle",
+    		exportEnabled: true,
+    		animationEnabled: true,
+    		axisY:{
+    			minimum: 0,
+    			maximum: 100,
+    		},
+    		axisX: {
+    			title: " ",
+    			labelFontSize: 12,
+    			labelWrap: true
+    		},
+    		data: [
+    		{
+    			type: "column",
+    			legendText: "{label} %",
+    			indexLabel: "{label} - {y}%",
+    			indexLabelFontSize: 12,
+    			yValueFormatString: "#0.##",
+    			toolTipContent: "<b>{label}</b>: {count}({y}%)",
+    			dataPoints: <%- JSON.stringify(breakAdmf) %>
+    		}
+    		]
+    	};
+        $("#chartadmf").CanvasJSChart(detailcec);
     }
   </script>
   <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
