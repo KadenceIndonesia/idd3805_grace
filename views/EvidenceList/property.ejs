@@ -51,6 +51,9 @@
                         <span class="size-std">City</span>
                         <select name="city" ng-model="search" id="city" class="size-std" >
                             <option value="all">-- All --</option>
+                            <% for(let i=0;i<kota.length;i++){ %>
+                                <option value="<%= kota[i].label %>"><%= kota[i].label %></option>
+                            <% } %>
                         </select>
                     </div>
                     <div class="list-control-box spc-rl">

@@ -7,6 +7,7 @@ Router.get("/noncore", kepoControllers.nonCoreEvidence);
 Router.get("/renewal", kepoControllers.renewalEvidence);
 
 Router.get("/autocilin", kepoControllers.autocilinEvidence);
+Router.get("/autocilin/detail/:id", kepoControllers.autocilinEvidenceDetail);
 Router.get("/property", kepoControllers.propertyEvidence);
 
 module.exports = Router;

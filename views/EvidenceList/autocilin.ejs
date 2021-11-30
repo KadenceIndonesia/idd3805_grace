@@ -51,6 +51,9 @@
                         <span class="size-std">City</span>
                         <select name="city" ng-model="search" id="city" class="size-std" >
                             <option value="all">-- All --</option>
+                            <% for(let i=0;i<kota.length;i++){ %>
+                                <option value="<%= kota[i].label %>"><%= kota[i].label %></option>
+                            <% } %>
                         </select>
                     </div>
                     <div class="list-control-box spc-rl">
@@ -84,11 +87,15 @@
                         <td>{{req.datems}}</td>
                         <td>{{req.branch}}</td>
                         <td>{{req.csname}}</td>
-                        <td align="center"><a href="<%= baseurl() %>report/detail/evidence/{{req.id}}/conversation">View</a></td>
+                        <td align="center"><a href="<%= baseurl() %>kepo/autocilin/detail/{{req.id}}">View</a></td>
                         <td>{{req.isname}}</td>
-                        <td align="center"><a href="<%= baseurl() %>report/detail/evidence/{{req.id}}/supporting">View</a></td>
+                        <td align="center">
+                            <!-- <a href="<%= baseurl() %>kepo/autocilin/detail/{{req.id}}">View</a> -->
+                        </td>
                         <td>{{req.surveyor}}</td>
-                        <td align="center"><a href="<%= baseurl() %>report/detail/evidence/{{req.id}}/supporting">View</a></td>
+                        <td align="center">
+                            <!-- <a href="<%= baseurl() %>kepo/autocilin/detail/{{req.id}}">View</a> -->
+                        </td>
                     </tr>
                 </table>
                 <dir-pagination-controls direction-links="true" boundary-links="true" class="size-std"></dir-pagination-controls>

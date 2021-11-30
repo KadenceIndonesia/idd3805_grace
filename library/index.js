@@ -35,9 +35,9 @@ global.getKepoEvd = function(touchpointCode){
     })
 }
 
-global.getAllEvd = function(){
+global.getAllEvd = function(prjid){
     return new Promise(resolve => {
-        Task.find({}).exec()
+        Task.find({project: prjid, state: 100}).exec()
         .then(response => {
             resolve(response)
         })
